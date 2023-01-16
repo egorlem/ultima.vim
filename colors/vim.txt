@@ -1,0 +1,104 @@
+
+" Vim editor colors
+"    <sid>hi(GROUP, FOREGROUND, BACKGROUND, ATTRIBUTE, SPECIAL)
+call <sid>hi('Normal', s:cdFront, s:cdBack, 'none', {})
+call <sid>hi('ColorColumn', {}, s:gray75, 'none', {})                    " DONE
+call <sid>hi('Cursor', s:cdCursorDark, s:cdCursorLight, 'none', {}) 
+call <sid>hi('CursorLine', {}, s:cdCursorDarkDark, 'none', {})
+call <sid>hi('CursorColumn', {}, s:cdCursorDarkDark, 'none', {})
+call <sid>hi('Directory', s:cdBlue, s:cdBack, 'none', {})
+call <sid>hi('DiffAdd', {}, s:cdDiffGreenDark, 'none', {})
+call <sid>hi('DiffChange', {}, s:cdDiffRedDark, 'none', {})
+call <sid>hi('DiffDelete', {}, s:cdDiffRedLight, 'none', {})
+call <sid>hi('DiffText', {}, s:cdDiffRedLight, 'none', {})
+call <sid>hi('EndOfBuffer', s:cdLineNumber, s:cdBack, 'none', {})
+call <sid>hi('ErrorMsg', s:dimRed, s:cdBack, 'none', {})            "DONE
+call <sid>hi('VertSplit', s:cdSplitDark, s:cdBack, 'none', {})
+call <sid>hi('Folded', s:cdLeftLight, s:cdLeftDark, 'underline', {})
+call <sid>hi('FoldColumn', s:cdLineNumber, s:cdBack, 'none', {})
+call <sid>hi('SignColumn', {}, s:cdBack, 'none', {})
+call <sid>hi('IncSearch', s:cdNone, s:cdSearchCurrent, 'none', {})
+call <sid>hi('LineNr', s:gray60, s:cdBack, 'none', {})              " DONE
+call <sid>hi('CursorLineNr', s:baseWhite, {}, 'none', {})
+call <sid>hi('MatchParen', s:cdNone, s:cdCursorDark, 'none', {})
+call <sid>hi('ModeMsg', s:cdFront, s:cdLeftDark, 'none', {})
+call <sid>hi('MoreMsg', s:cdFront, s:cdLeftDark, 'none', {})
+call <sid>hi('NonText', s:cdLineNumber, s:cdBack, 'none', {})
+call <sid>hi('Pmenu', s:baseWhite, s:cdPopupBack, 'none', {}) " DONE
+call <sid>hi('PmenuSel', s:baseWhite, s:specialGreen, 'none', {}) "DONE
+call <sid>hi('PmenuSbar', {}, s:gray75, 'none', {})  "???????? надо вернутся
+call <sid>hi('PmenuThumb', {}, s:gray50, 'none', {})
+call <sid>hi('Question', s:baseBlue, s:cdBack, 'none', {}) "??????????
+call <sid>hi('Search', s:cdNone, s:cdSearch, 'none', {})
+call <sid>hi('SpecialKey', s:cdBlue, s:cdNone, 'none', {})
+
+
+" :hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen " need
+" :hi TabLine ctermfg=baseWhite ctermbg=baseBlack
+" :hi TabLineSel ctermfg=Red ctermbg=Yellow
+" :hi Title ctermfg=LightBlue ctermbg=Magenta
+
+call <sid>hi('TabLine', s:cdFront, s:cdTabOther, 'none', {})
+call <sid>hi('TabLineFill', s:baseWhite, s:gray75, 'none', {}) " DONE
+call <sid>hi('TabLineSel', s:baseWhite, s:hvDarkGreen, 'none', {}) " DONE
+call <sid>hi('Title', s:dimGreen, {}, 'none', {})  " DONE
+" call <sid>hi('Visual', s:cdNone, s:cdSelection, 'none', {})
+" call <sid>hi('VisualNOS', s:cdNone, s:cdSelection, 'none', {})
+" call <sid>hi('WarningMsg', s:dimRed, s:cdBack, 'none', {})           " DONE
+" call <sid>hi('WildMenu', s:cdNone, s:cdSelection, 'none', {})
+" GLOBAL
+call <sid>hi('Comment', s:gray50, {}, 'none', {})
+call <sid>hi('Constant', s:cdBlue, {}, 'none', {})
+call <sid>hi('String', s:dimGreen, {}, 'none', {}) " done
+" ??????????
+call <sid>hi('Character', s:cdYellow, {}, 'none', {})
+call <sid>hi('Number', s:dimMagenta, {}, 'none', {}) " DOME
+
+call <sid>hi('Boolean', s:cdBlue, {}, 'none', {})
+" ?????
+call <sid>hi('Float', s:cdLightGreen, {}, 'none', {})
+
+call <sid>hi('Identifier', s:cdCyan, {}, 'none', {})
+call <sid>hi('Function', s:baseCyan, {}, 'none', {}) " DONE
+
+call <sid>hi('Statement', s:cdBlue, {}, 'none', {})
+call <sid>hi('Conditional', s:cdBlue, {}, 'none', {})
+call <sid>hi('Repeat', s:cdBlue, {}, 'none', {})
+call <sid>hi('Label', s:cdBlue, {}, 'none', {})
+call <sid>hi('Operator', s:cdBlue, {}, 'none', {})
+call <sid>hi('Keyword', s:cdBlue, {}, 'none', {})
+call <sid>hi('Exception', s:cdBlue, {}, 'none', {})
+
+call <sid>hi('PreProc', s:cdBlue, {}, 'none', {})
+
+
+call <sid>hi('Include', s:cdPink, {}, 'none', {})
+call <sid>hi('Define', s:cdPink, {}, 'none', {})
+call <sid>hi('Macro', s:cdPink, {}, 'none', {})
+call <sid>hi('PreCondit', s:cdPink, {}, 'none', {})
+
+call <sid>hi('Type', s:cdBlue, {}, 'none', {})
+call <sid>hi('StorageClass', s:cdBlue, {}, 'none', {})
+call <sid>hi('Structure', s:cdBlue, {}, 'none', {})
+call <sid>hi('Typedef', s:cdBlue, {}, 'none', {})
+
+call <sid>hi('Special', s:stSpecial, {}, 'none', {})
+call <sid>hi('SpecialChar', s:cdBlue, {}, 'none', {})
+call <sid>hi('Tag', s:cdRed, {}, 'none', {})
+call <sid>hi('Delimiter', s:gray50, {}, 'none', {}) " DONE
+call <sid>hi('SpecialComment', s:cdGreen, {}, 'none', {})
+call <sid>hi('Debug', s:cdFront, {}, 'none', {})
+
+call <sid>hi('Underlined', s:cdRed, {}, 'underline', {})
+call <sid>hi("Conceal", s:cdFront, s:cdBack, 'none', {})
+
+call <sid>hi('Ignore', s:cdFront, {}, 'none', {})
+
+call <sid>hi('Error', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+
+call <sid>hi('Todo', s:cdRed, s:cdLeftMid, 'none', {})
+
+call <sid>hi('SpellBad', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellCap', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellRare', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
+call <sid>hi('SpellLocal', s:cdRed, s:cdBack, 'undercurl', s:cdRed)

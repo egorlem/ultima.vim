@@ -1,0 +1,49 @@
+" JavaScript:
+call <sid>hi('jsVariableDef', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsFuncParens', s:baseBlue, {}, 'none', {}) " DONE
+call <sid>hi('jsFutureKeys', s:cdCyan, {}, 'none', {})
+call <sid>hi('jsDestructuringPropertyValue', s:cdCyan, {}, 'none', {})
+call <sid>hi('jsTemplateExpression', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsFuncArgs', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsExceptions', s:cdGreen, {}, 'none', {})
+call <sid>hi('jsFuncBlock', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsRegexpString', s:cdYellow, {}, 'none', {})
+call <sid>hi('jsRegexpQuantifier', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsImport', s:cdBlue, {}, 'none', {}) " DONE
+call <sid>hi('jsFrom', s:cdBlue, {}, 'none', {}) " DONE
+call <sid>hi('jsModuleAs', s:cdBlue, {}, 'none', {}) " DONE
+call <sid>hi('jsThis', s:cdBlue, {}, 'none', {}) 
+call <sid>hi('jsClassFuncName', s:baseCyan, {}, 'none', {}) " DONE
+
+call <sid>hi('jsObjectBraces', s:gray40, {}, 'none', {}) " DONE
+call <sid>hi('jsModuleBraces', s:gray40, {}, 'none', {}) " DONE
+call <sid>hi('jsNoise', s:gray40, {}, 'none', {}) " DONE
+call <sid>hi('jsIfElseBraces', s:gray40, {}, 'none', {}) " DONE
+call <sid>hi('jsDestructuringBraces', s:gray40, {}, 'none', {}) " DONE
+
+call <sid>hi('jsFuncBraces', s:gray40, {}, 'none', {}) " DONE
+call <sid>hi('jsClassBraces', s:gray40, {}, 'none', {}) " DONE
+call <sid>hi('jsObjectSeparator', s:gray40, {}, 'none', {}) " DONE
+call <sid>hi('jsDot', s:gray40, {}, 'none', {}) " DONE
+call <sid>hi('jsOperatorKeyword', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsTemplateBraces', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsObjectColon', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsDestructuringBlock', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsObjectKey', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsGlobalObjects', s:baseGreen, {}, 'none', {}) " DONE
+call <sid>hi('jsModuleKeyword', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsExport', s:cdBlue, {}, 'none', {}) " DONE
+call <sid>hi('jsClassDefinition', s:cdGreen, {}, 'none', {})
+call <sid>hi('jsClassKeyword', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsExtendsKeyword', s:cdBlue, {}, 'none', {})
+call <sid>hi('jsExportDefault', s:cdBlue, {}, 'none', {}) " DONE
+call <sid>hi('jsFuncCall', s:baseCyan, {}, 'none', {}) " DONE
+call <sid>hi('jsParens', s:baseCyan, {}, 'none', {}) " DONE
+call <sid>hi('jsObjectValue', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsParen', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsObjectProp', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsIfElseBlock', s:cdCyan, {}, 'none', {})
+call <sid>hi('jsParenIfElse', s:cdCyan, {}, 'none', {})
+call <sid>hi('jsSpreadOperator', s:baseBlue, {}, 'none', {}) " DONE
+call <sid>hi('jsSpreadExpression', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('jsLength', s:baseGreen, {}, 'none', {}) " DONE

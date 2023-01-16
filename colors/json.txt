@@ -1,0 +1,6 @@
+" JSON: " DONE COR
+call <sid>hi('jsonKeyword', s:baseCyan, {}, 'none', {})       " DONE
+call <sid>hi('jsonKeywordMatch', s:baseBlue, {}, 'none', {})  " DONE
+call <sid>hi('jsonNull', s:baseBlue, {}, 'none', {})          " DONE
+call <sid>hi('jsonBoolean', s:baseBlue, {}, 'none', {})       " DONE
+call <sid>hi('jsonQuote', s:gray50, {}, 'none', {})           " DONE

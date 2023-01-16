@@ -1,0 +1,111 @@
+scriptencoding utf-8
+hi clear
+
+if exists("syntax_on")
+    syntax reset
+endif
+
+let g:colors_name=021011
+
+" Highlighting function (inspiration from https://github.com/chriskempson/base16-vim)
+
+if &t_Co >= 256
+    let g:codedark_term256=1
+elseif !exists("g:codedark_term256")
+    let g:codedark_term256=0
+endif
+
+fun! <sid>hi(group, fg, bg, attr, sp)
+  if !empty(a:fg)
+    exec "hi " . a:group . " guifg=" . a:fg.gui . " ctermfg=" . (g:codedark_term256 ? a:fg.cterm256 : a:fg.cterm)
+  endif
+  if !empty(a:bg)
+    exec "hi " . a:group . " guibg=" . a:bg.gui . " ctermbg=" . (g:codedark_term256 ? a:bg.cterm256 : a:bg.cterm)
+  endif
+  if a:attr != ""
+    exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
+  endif
+  if !empty(a:sp)
+    exec "hi " . a:group . " guisp=" . a:sp.gui
+  endif
+endfun
+
+" COLOR DEFINITIONS  ───────────────────────────────────────────────────────────
+
+" Terminal colors (base16):
+let s:cterm00 = "00"
+let s:cterm03 = "08"
+let s:cterm05 = "07"
+let s:cterm07 = "15"
+let s:cterm08 = "01"
+let s:cterm0A = "03"
+let s:cterm0B = "02"
+let s:cterm0C = "06"
+let s:cterm0D = "04"
+let s:cterm0E = "05"
+if exists('base16colorspace') && base16colorspace == "256"
+  let s:cterm01 = "18"
+  let s:cterm02 = "19"
+  let s:cterm04 = "20"
+  let s:cterm06 = "21"
+  let s:cterm09 = "16"
+  let s:cterm0F = "17"
+else
+  let s:cterm01 = "00"
+  let s:cterm02 = "08"
+  let s:cterm04 = "07"
+  let s:cterm06 = "07"
+  let s:cterm09 = "06"
+  let s:cterm0F = "03"
+endif
+
+" ????? ────────────────────────────────────────────────────────────────────────
+
+if !exists("g:codedark_conservative")
+    let g:codedark_conservative=0
+endif
+
+" 021011 COLORS ────────────────────────────────────────────────────────────────
+
+let s:baseBack = {'gui': '#1E1E1E', 'cterm': s:cterm00, 'cterm256': '234'}
+let s:gray75 = {'gui': '#303030', 'cterm': s:cterm08, 'cterm256': '236'}
+let s:gray60 = {'gui': '#626262', 'cterm': s:cterm08, 'cterm256': '241'}
+let s:gray50 = {'gui': '#8a8a8a', 'cterm': s:cterm08, 'cterm256': '245'}
+let s:gray40 = {'gui': '#8a8a8a', 'cterm': s:cterm08, 'cterm256': '247'}
+
+let s:specialGreen = {'gui': '#005f5f', 'cterm': 'NONE', 'cterm256': '23'}
+let s:specialMarkerGreen = {'gui': '#5fffaf', 'cterm': s:cterm04, 'cterm256': '85'}
+
+let s:baseRed = {'gui': '#ff5f5f', 'cterm': s:cterm08, 'cterm256': '203'}
+let s:dimRed = {'gui': '#d75f5f', 'cterm': s:cterm08, 'cterm256': '167'}
+
+let s:baseBlue = {'gui': '#5fafd7', 'cterm': s:cterm08, 'cterm256': '74'}
+let s:dimBlue = {'gui': '#87afd7', 'cterm': s:cterm08, 'cterm256': '110'}
+
+let s:baseCyan = {'gui': '#5fd7d7', 'cterm': s:cterm08, 'cterm256': '80'}
+let s:dimCyan = {'gui': '#87d7d7', 'cterm': s:cterm08, 'cterm256': '116'}
+
+let s:baseGreen = {'gui': '#87d7af', 'cterm': s:cterm08, 'cterm256': '115'}
+let s:dimGreen = {'gui': '#afd7af', 'cterm': s:cterm08, 'cterm256': '151'}
+
+let s:baseMagenta = {'gui': '#afafff', 'cterm': s:cterm08, 'cterm256': '147'}
+let s:dimMagenta = {'gui': '#afafd7', 'cterm': s:cterm08, 'cterm256': '146'}
+
+let s:baseWhite = {'gui': '#dadada', 'cterm': s:cterm08, 'cterm256': '253'}
+
+" Git ──────────────────────────────────────────────────────────────────────────
+
+call <sid>hi('gitcommitHeader', s:baseWhite, {}, 'none', {})
+call <sid>hi('gitcommitOnBranch', s:baseWhite, {}, 'none', {})
+call <sid>hi('gitcommitBranch', s:specialMarkerGreen, {}, 'none', {})
+call <sid>hi('gitcommitComment', s:gray50, {}, 'none', {})
+call <sid>hi('gitcommitSelectedType', s:baseGreen, {}, 'none', {})
+call <sid>hi('gitcommitSelectedFile', s:baseGreen, {}, 'none', {})
+call <sid>hi('gitcommitUnmergedType', s:baseCyan, {}, 'none', {})
+call <sid>hi('gitcommitUnmergedFile', s:baseCyan, {}, 'none', {})
+call <sid>hi('gitcommitUntrackedFile', s:baseBlue, {}, 'none', {})
+call <sid>hi('gitcommitDiscardedType', s:dimRed, {}, 'none', {})
+call <sid>hi('gitcommitDiscardedFile', s:dimRed, {}, 'none', {})
+call <sid>hi('gitcommitOverflow', s:dimRed, {}, 'none', {})
+call <sid>hi('gitcommitSummary', s:dimGreen, {}, 'none', {})
+call <sid>hi('gitcommitBlank', s:dimGreen, {}, 'none', {})

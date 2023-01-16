@@ -1,0 +1,16 @@
+call <sid>hi('markdownBold', s:cdBlue, {}, 'bold', {})
+call <sid>hi('markdownCode', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('markdownRule', s:baseWhite, {}, 'bold', {})
+call <sid>hi('markdownCodeDelimiter', s:baseWhite, {}, 'none', {}) " DONE
+call <sid>hi('markdownHeadingDelimiter', s:baseGreen, {}, 'none', {}) " DONE
+call <sid>hi('markdownFootnote', s:cdOrange, {}, 'none', {})
+call <sid>hi('markdownFootnoteDefinition', s:cdOrange, {}, 'none', {})
+call <sid>hi('markdownUrl', s:baseBlue, {}, 'underline', {}) " DONE
+call <sid>hi('markdownLinkText', s:baseCyan, {}, 'none', {}) " DONE
+call <sid>hi('markdownEscape', s:cdYellowOrange, {}, 'none', {})
+call <sid>hi('markdownOrderedListMarker', s:gray50, {}, 'none', {}) " DONE
+call <sid>hi('markdownH1', s:baseGreen, {}, 'none', {}) " DONE
+call <sid>hi('markdownH2', s:baseGreen, {}, 'none', {}) " DONE
+call <sid>hi('markdownH3', s:baseGreen, {}, 'none', {}) " DONE
+call <sid>hi('markdownH4', s:baseGreen, {}, 'none', {}) " DONE
+call <sid>hi('markdownH5', s:baseGreen, {}, 'none', {}) " DONE 

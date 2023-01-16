@@ -1,0 +1,12 @@
+" Python:
+call <sid>hi('pythonStatement', s:cdBlue, {}, 'none', {})
+call <sid>hi('pythonOperator', s:cdBlue, {}, 'none', {})
+call <sid>hi('pythonException', s:cdPink, {}, 'none', {})
+call <sid>hi('pythonExClass', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('pythonBuiltinObj', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('pythonBuiltinType', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('pythonBoolean', s:cdBlue, {}, 'none', {})
+call <sid>hi('pythonNone', s:cdBlue, {}, 'none', {})
+call <sid>hi('pythonTodo', s:cdBlue, {}, 'none', {})
+call <sid>hi('pythonClassVar', s:cdBlue, {}, 'none', {})
+call <sid>hi('pythonClassDef', s:cdBlueGreen, {}, 'none', {})

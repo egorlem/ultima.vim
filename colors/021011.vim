@@ -1,9 +1,6 @@
-" Vim Code Dark (color scheme)
-" https://github.com/tomasiser/vim-code-dark
-
 scriptencoding utf-8
-
 hi clear
+
 if exists("syntax_on")
     syntax reset
 endif
@@ -11,6 +8,7 @@ endif
 let g:colors_name=021011
 
 " Highlighting function (inspiration from https://github.com/chriskempson/base16-vim)
+
 if &t_Co >= 256
     let g:codedark_term256=1
 elseif !exists("g:codedark_term256")
@@ -32,9 +30,7 @@ fun! <sid>hi(group, fg, bg, attr, sp)
   endif
 endfun
 
-" ------------------
-" Color definitions:
-" ------------------
+" COLOR DEFINITIONS  ───────────────────────────────────────────────────────────
 
 " Terminal colors (base16):
 let s:cterm00 = "00"
@@ -63,8 +59,14 @@ else
   let s:cterm0F = "03"
 endif
 
-" General appearance colors:
-" (some of them may be unused)
+" ????? ────────────────────────────────────────────────────────────────────────
+
+if !exists("g:codedark_conservative")
+    let g:codedark_conservative=0
+endif
+
+
+" OLD COLOR 
 
 let s:cdDarkGreen = {'gui': 'NONE', 'cterm': 'NONE', 'cterm256': '23'}
 
@@ -108,12 +110,6 @@ let s:cdDiffGreenLight = {'gui': '#4B5632', 'cterm': s:cterm09, 'cterm256': '58'
 let s:cdSearchCurrent = {'gui': '#585858', 'cterm': s:cterm09, 'cterm256': '2'} " DONE 
 let s:cdSearch = {'gui': '#005f5f', 'cterm': s:cterm03, 'cterm256': '23'} " DONE
 
-" Syntax colors:
-
-if !exists("g:codedark_conservative")
-    let g:codedark_conservative=0
-endif
-
 let s:stSpecial = {'gui': '#5fffaf', 'cterm': s:cterm04, 'cterm256': '85'}
 let s:stGray = {'gui': '#dadada', 'cterm': s:cterm04, 'cterm256': '253'}
 let s:ptGray = {'gui': '#9e9e9e', 'cterm': s:cterm04, 'cterm256': '247'}
@@ -139,16 +135,17 @@ let s:cdPink = {'gui': '#C586C0', 'cterm': s:cterm0E, 'cterm256': '176'}
 if g:codedark_conservative | let s:cdPink = s:cdBlue | endif
 
 
-"GUEZWHOZ SCHEME
-let s:baseWhite = {'gui': '#dadada', 'cterm': s:cterm00, 'cterm256': '234'}
+" 021011 COLORS ────────────────────────────────────────────────────────────────
+
 let s:baseBack = {'gui': '#1E1E1E', 'cterm': s:cterm00, 'cterm256': '234'}
 let s:gray75 = {'gui': '#303030', 'cterm': s:cterm08, 'cterm256': '236'}
 let s:gray60 = {'gui': '#626262', 'cterm': s:cterm08, 'cterm256': '241'}
 let s:gray50 = {'gui': '#8a8a8a', 'cterm': s:cterm08, 'cterm256': '245'}
 let s:gray40 = {'gui': '#8a8a8a', 'cterm': s:cterm08, 'cterm256': '247'}
+
 let s:specialGreen = {'gui': '#005f5f', 'cterm': 'NONE', 'cterm256': '23'}
 let s:specialMarkerGreen = {'gui': '#5fffaf', 'cterm': s:cterm04, 'cterm256': '85'}
-"
+
 let s:baseRed = {'gui': '#ff5f5f', 'cterm': s:cterm08, 'cterm256': '203'}
 let s:dimRed = {'gui': '#d75f5f', 'cterm': s:cterm08, 'cterm256': '167'}
 
@@ -164,10 +161,47 @@ let s:dimGreen = {'gui': '#afd7af', 'cterm': s:cterm08, 'cterm256': '151'}
 let s:baseMagenta = {'gui': '#afafff', 'cterm': s:cterm08, 'cterm256': '147'}
 let s:dimMagenta = {'gui': '#afafd7', 'cterm': s:cterm08, 'cterm256': '146'}
 
-
-
 let s:baseWhite = {'gui': '#dadada', 'cterm': s:cterm08, 'cterm256': '253'}
 
+" Git ──────────────────────────────────────────────────────────────────────────
+
+call <sid>hi('gitcommitHeader', s:baseWhite, {}, 'none', {})
+call <sid>hi('gitcommitOnBranch', s:baseWhite, {}, 'none', {})
+call <sid>hi('gitcommitBranch', s:specialMarkerGreen, {}, 'none', {})
+call <sid>hi('gitcommitComment', s:gray50, {}, 'none', {})
+call <sid>hi('gitcommitSelectedType', s:baseGreen, {}, 'none', {})
+call <sid>hi('gitcommitSelectedFile', s:baseGreen, {}, 'none', {})
+call <sid>hi('gitcommitUnmergedType', s:baseCyan, {}, 'none', {})
+call <sid>hi('gitcommitUnmergedFile', s:baseCyan, {}, 'none', {})
+call <sid>hi('gitcommitUntrackedFile', s:baseBlue, {}, 'none', {})
+call <sid>hi('gitcommitDiscardedType', s:dimRed, {}, 'none', {})
+call <sid>hi('gitcommitDiscardedFile', s:dimRed, {}, 'none', {})
+call <sid>hi('gitcommitOverflow', s:dimRed, {}, 'none', {})
+call <sid>hi('gitcommitSummary', s:dimGreen, {}, 'none', {})
+call <sid>hi('gitcommitBlank', s:dimGreen, {}, 'none', {})
+
+" CSS:
+call <sid>hi('cssBraces', s:cdFront, {}, 'none', {})
+call <sid>hi('cssInclude', s:cdPink, {}, 'none', {})
+call <sid>hi('cssTagName', s:cdYellowOrange, {}, 'none', {})
+call <sid>hi('cssClassName', s:cdYellowOrange, {}, 'none', {})
+call <sid>hi('cssPseudoClass', s:cdYellowOrange, {}, 'none', {})
+call <sid>hi('cssPseudoClassId', s:cdYellowOrange, {}, 'none', {})
+call <sid>hi('cssPseudoClassLang', s:cdYellowOrange, {}, 'none', {})
+call <sid>hi('cssIdentifier', s:cdYellowOrange, {}, 'none', {})
+call <sid>hi('cssProp', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('cssDefinition', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('cssAttr', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssAttrRegion', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssColor', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssFunction', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssFunctionName', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssVendor', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssValueNumber', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssValueLength', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssUnitDecorators', s:cdOrange, {}, 'none', {})
+call <sid>hi('cssStyle', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('cssImportant', s:cdBlue, {}, 'none', {}) 
 
 
 " Vim editor colors
@@ -274,71 +308,6 @@ call <sid>hi('SpellCap', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 call <sid>hi('SpellRare', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 call <sid>hi('SpellLocal', s:cdRed, s:cdBack, 'undercurl', s:cdRed)
 
-" Markdown:
-call <sid>hi('markdownBold', s:cdBlue, {}, 'bold', {})
-call <sid>hi('markdownCode', s:baseWhite, {}, 'none', {}) " DONE
-call <sid>hi('markdownRule', s:baseWhite, {}, 'bold', {})
-call <sid>hi('markdownCodeDelimiter', s:baseWhite, {}, 'none', {}) " DONE
-call <sid>hi('markdownHeadingDelimiter', s:baseGreen, {}, 'none', {}) " DONE
-call <sid>hi('markdownFootnote', s:cdOrange, {}, 'none', {})
-call <sid>hi('markdownFootnoteDefinition', s:cdOrange, {}, 'none', {})
-call <sid>hi('markdownUrl', s:baseBlue, {}, 'underline', {}) " DONE
-call <sid>hi('markdownLinkText', s:baseCyan, {}, 'none', {}) " DONE
-call <sid>hi('markdownEscape', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('markdownOrderedListMarker', s:gray50, {}, 'none', {}) " DONE
-call <sid>hi('markdownH1', s:baseGreen, {}, 'none', {}) " DONE
-call <sid>hi('markdownH2', s:baseGreen, {}, 'none', {}) " DONE
-call <sid>hi('markdownH3', s:baseGreen, {}, 'none', {}) " DONE
-call <sid>hi('markdownH4', s:baseGreen, {}, 'none', {}) " DONE
-call <sid>hi('markdownH5', s:baseGreen, {}, 'none', {}) " DONE 
-
-" JSON: " DONE COR
-call <sid>hi('jsonKeyword', s:baseCyan, {}, 'none', {})       " DONE
-call <sid>hi('jsonKeywordMatch', s:baseBlue, {}, 'none', {})  " DONE
-call <sid>hi('jsonNull', s:baseBlue, {}, 'none', {})          " DONE
-call <sid>hi('jsonBoolean', s:baseBlue, {}, 'none', {})       " DONE
-call <sid>hi('jsonQuote', s:gray50, {}, 'none', {})           " DONE
-
-" HTML:
-call <sid>hi('htmlTag', s:cdGray, {}, 'none', {})
-call <sid>hi('htmlEndTag', s:cdGray, {}, 'none', {})
-call <sid>hi('htmlTagName', s:cdBlue, {}, 'none', {})
-call <sid>hi('htmlSpecialTagName', s:cdBlue, {}, 'none', {})
-call <sid>hi('htmlArg', s:cdLightBlue, {}, 'none', {})
-
-" PHP:
-call <sid>hi('phpStaticClasses', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('phpMethod', s:cdYellow, {}, 'none', {})
-call <sid>hi('phpClass', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('phpFunction', s:cdYellow, {}, 'none', {})
-call <sid>hi('phpInclude', s:cdBlue, {}, 'none', {})
-call <sid>hi('phpUseClass', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('phpRegion', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('phpMethodsVar', s:cdLightBlue, {}, 'none', {})
-
-" CSS:
-call <sid>hi('cssBraces', s:cdFront, {}, 'none', {})
-call <sid>hi('cssInclude', s:cdPink, {}, 'none', {})
-call <sid>hi('cssTagName', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('cssClassName', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('cssPseudoClass', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('cssPseudoClassId', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('cssPseudoClassLang', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('cssIdentifier', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('cssProp', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('cssDefinition', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('cssAttr', s:cdOrange, {}, 'none', {})
-call <sid>hi('cssAttrRegion', s:cdOrange, {}, 'none', {})
-call <sid>hi('cssColor', s:cdOrange, {}, 'none', {})
-call <sid>hi('cssFunction', s:cdOrange, {}, 'none', {})
-call <sid>hi('cssFunctionName', s:cdOrange, {}, 'none', {})
-call <sid>hi('cssVendor', s:cdOrange, {}, 'none', {})
-call <sid>hi('cssValueNumber', s:cdOrange, {}, 'none', {})
-call <sid>hi('cssValueLength', s:cdOrange, {}, 'none', {})
-call <sid>hi('cssUnitDecorators', s:cdOrange, {}, 'none', {})
-call <sid>hi('cssStyle', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('cssImportant', s:cdBlue, {}, 'none', {})
-
 " JavaScript:
 call <sid>hi('jsVariableDef', s:baseWhite, {}, 'none', {}) " DONE
 call <sid>hi('jsFuncParens', s:baseBlue, {}, 'none', {}) " DONE
@@ -387,74 +356,25 @@ call <sid>hi('jsIfElseBlock', s:cdCyan, {}, 'none', {})
 call <sid>hi('jsParenIfElse', s:cdCyan, {}, 'none', {})
 call <sid>hi('jsSpreadOperator', s:baseBlue, {}, 'none', {}) " DONE
 call <sid>hi('jsSpreadExpression', s:baseWhite, {}, 'none', {}) " DONE
-call <sid>hi('jsLength', s:baseGreen, {}, 'none', {}) " DONE
+call <sid>hi('jsLength', s:baseGreen, {}, 'none', {}) " DONE 
 
-" Typescript:
-call <sid>hi('typescriptLabel', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptExceptions', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptBraces', s:cdFront, {}, 'none', {})
-call <sid>hi('typescriptEndColons', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptParens', s:cdFront, {}, 'none', {})
-call <sid>hi('typescriptDocTags', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptDocComment', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptLogicSymbols', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptImport', s:cdPink, {}, 'none', {})
-call <sid>hi('typescriptBOM', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptVariableDeclaration', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptVariable', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptExport', s:cdPink, {}, 'none', {})
-call <sid>hi('typescriptAliasDeclaration', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptAliasKeyword', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptClassName', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptAccessibilityModifier', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptOperator', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptArrowFunc', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptMethodAccessor', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptMember', s:cdYellow, {}, 'none', {})
-call <sid>hi('typescriptTypeReference', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptDefault', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptTemplateSB', s:cdYellowOrange, {}, 'none', {})
-call <sid>hi('typescriptArrowFuncArg', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptParamImpl', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptFuncComma', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptCastKeyword', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptCall', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptCase', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptReserved', s:cdPink, {}, 'none', {})
-call <sid>hi('typescriptDefault', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptDecorator', s:cdYellow, {}, 'none', {})
-call <sid>hi('typescriptPredefinedType', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptClassHeritage', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptClassExtends', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptClassKeyword', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptBlock', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptDOMDocProp', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptTemplateSubstitution', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptClassBlock', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptFuncCallArg', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptIndexExpr', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptConditionalParen', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptArray', s:cdYellow, {}, 'none', {})
-call <sid>hi('typescriptES6SetProp', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptObjectLiteral', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptTypeParameter', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptEnumKeyword', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptEnum', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptLoopParen', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptParenExp', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptModule', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('typescriptAmbientDeclaration', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptModule', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptFuncTypeArrow', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptInterfaceHeritage', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptInterfaceName', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptInterfaceKeyword', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptInterfaceExtends', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptGlobal', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('typescriptAsyncFuncKeyword', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptFuncKeyword', s:cdBlue, {}, 'none', {})
-call <sid>hi('typescriptGlobalMethod', s:cdYellow, {}, 'none', {})
-call <sid>hi('typescriptPromiseMethod', s:cdYellow, {}, 'none', {})
+
+
+
+" PHP:
+call <sid>hi('phpStaticClasses', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('phpMethod', s:cdYellow, {}, 'none', {})
+call <sid>hi('phpClass', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('phpFunction', s:cdYellow, {}, 'none', {})
+call <sid>hi('phpInclude', s:cdBlue, {}, 'none', {})
+call <sid>hi('phpUseClass', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('phpRegion', s:cdBlueGreen, {}, 'none', {})
+call <sid>hi('phpMethodsVar', s:cdLightBlue, {}, 'none', {})
+
+
+
+
+
 
 " XML:
 call <sid>hi('xmlTag', s:cdBlueGreen, {}, 'none', {})
@@ -467,45 +387,6 @@ call <sid>hi('rubyClassName', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('rubyModuleName', s:cdBlueGreen, {}, 'none', {})
 call <sid>hi('rubyConstant', s:cdBlueGreen, {}, 'none', {})
 
-" Golang:
-call <sid>hi('goPackage', s:cdBlue, {}, 'none', {})
-call <sid>hi('goImport', s:cdBlue, {}, 'none', {})
-call <sid>hi('goVar', s:cdBlue, {}, 'none', {})
-call <sid>hi('goConst', s:cdBlue, {}, 'none', {})
-call <sid>hi('goStatement', s:cdPink, {}, 'none', {})
-call <sid>hi('goType', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('goSignedInts', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('goUnsignedInts', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('goFloats', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('goComplexes', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('goBuiltins', s:cdYellow, {}, 'none', {})
-call <sid>hi('goBoolean', s:cdBlue, {}, 'none', {})
-call <sid>hi('goPredefinedIdentifiers', s:cdBlue, {}, 'none', {})
-call <sid>hi('goTodo', s:cdGreen, {}, 'none', {})
-call <sid>hi('goDeclaration', s:cdBlue, {}, 'none', {})
-call <sid>hi('goDeclType', s:cdBlue, {}, 'none', {})
-call <sid>hi('goTypeDecl', s:cdBlue, {}, 'none', {})
-call <sid>hi('goTypeName', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('goVarAssign', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('goVarDefs', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('goReceiver', s:cdFront, {}, 'none', {})
-call <sid>hi('goReceiverType', s:cdFront, {}, 'none', {})
-call <sid>hi('goFunctionCall', s:cdYellow, {}, 'none', {})
-call <sid>hi('goMethodCall', s:cdYellow, {}, 'none', {})
-call <sid>hi('goSingleDecl', s:cdLightBlue, {}, 'none', {})
-
-" Python:
-call <sid>hi('pythonStatement', s:cdBlue, {}, 'none', {})
-call <sid>hi('pythonOperator', s:cdBlue, {}, 'none', {})
-call <sid>hi('pythonException', s:cdPink, {}, 'none', {})
-call <sid>hi('pythonExClass', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('pythonBuiltinObj', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('pythonBuiltinType', s:cdBlueGreen, {}, 'none', {})
-call <sid>hi('pythonBoolean', s:cdBlue, {}, 'none', {})
-call <sid>hi('pythonNone', s:cdBlue, {}, 'none', {})
-call <sid>hi('pythonTodo', s:cdBlue, {}, 'none', {})
-call <sid>hi('pythonClassVar', s:cdBlue, {}, 'none', {})
-call <sid>hi('pythonClassDef', s:cdBlueGreen, {}, 'none', {})
 
 " TeX:
 call <sid>hi('texStatement', s:cdBlue, {}, 'none', {})
@@ -516,21 +397,6 @@ call <sid>hi('texBeginEndModifier', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('texDocType', s:cdPink, {}, 'none', {})
 call <sid>hi('texDocTypeArgs', s:cdLightBlue, {}, 'none', {})
 
-" Git: DONE
-call <sid>hi('gitcommitHeader', s:baseWhite, {}, 'none', {})
-call <sid>hi('gitcommitOnBranch', s:baseWhite, {}, 'none', {})
-call <sid>hi('gitcommitBranch', s:specialMarkerGreen, {}, 'none', {})
-call <sid>hi('gitcommitComment', s:cdGray, {}, 'none', {})
-call <sid>hi('gitcommitSelectedType', s:baseGreen, {}, 'none', {})
-call <sid>hi('gitcommitSelectedFile', s:baseGreen, {}, 'none', {})
-call <sid>hi('gitcommitUnmergedType', s:baseCyan, {}, 'none', {})
-call <sid>hi('gitcommitUnmergedFile', s:baseCyan, {}, 'none', {})
-call <sid>hi('gitcommitUntrackedFile', s:baseBlue, {}, 'none', {})
-call <sid>hi('gitcommitDiscardedType', s:dimRed, {}, 'none', {})
-call <sid>hi('gitcommitDiscardedFile', s:dimRed, {}, 'none', {})
-call <sid>hi('gitcommitOverflow', s:dimRed, {}, 'none', {})
-call <sid>hi('gitcommitSummary', s:dimGreen, {}, 'none', {})
-call <sid>hi('gitcommitBlank', s:dimGreen, {}, 'none', {})
 
 " Lua:
 call <sid>hi('luaFuncCall', s:cdYellow, {}, 'none', {})
