@@ -1,1 +1,1 @@
-# 021011-vim-theme
+# 021011.vim theme
